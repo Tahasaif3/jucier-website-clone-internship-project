@@ -301,7 +301,7 @@ export default function Navbar() {
 
               {/* ✅ Checkout Button */}
               <Link
-                href="/checkout"
+                href="/Checkout"
                 onClick={() => setShowCart(false)}
                 className="mt-4 w-full block text-center py-3 bg-[#d91645] text-white font-semibold rounded-md hover:bg-[#b8123a] transition-colors shadow-md hover:shadow-lg"
               >

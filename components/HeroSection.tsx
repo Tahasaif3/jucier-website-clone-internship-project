@@ -15,20 +15,23 @@ export function Hero() {
         <h1
           id="hero-title"
           className={cn(
-            "text-pretty font-extrabold leading-[0.95] text-white",
-            "text-5xl sm:text-7xl md:text-8xl lg:text-[110px]",
+            "text-pretty font-extrabold leading-[1.1] text-white",
+            // Smoothly scale font from small to large screens
+            "text-[2.5rem] sm:text-[4rem] md:text-[5rem] lg:text-[6.5rem] xl:text-[7rem]",
             "tracking-tight"
           )}
         >
           <span className="drop-shadow-[0_4px_6px_rgba(0,0,0,0.15)]">Pure Sips, </span>
-          <span className="headline-hollow">Straight</span>
+          <span className="headline-hollow">Straight </span>
           <br className="hidden md:block" />
-          <span className="drop-shadow-[0_4px_6px_rgba(0,0,0,0.15)] ml-50">From Nature&apos;s Can!</span>
-        </h1>
+        <span className="ml-0 md:ml-24 drop-shadow-[0_4px_6px_rgba(0,0,0,0.15)]">
+          From Nature&apos;s Can!
+        </span>        
+      </h1>
       </div>
 
       {/* Stage */}
-      <div className="relative mx-auto w-full max-w-6xl" style={{ height: '500px' }}>
+      <div className="relative mx-auto w-full max-w-6xl h-[500px] sm:h-[400px] xs:h-[350px]">
         {/* Bubble Canvas */}
         <BubblesCanvas className="pointer-events-none absolute inset-0 z-[5]" />
 
@@ -38,19 +41,25 @@ export function Hero() {
           alt="Water splash"
           width={1800}
           height={1000}
-          className="pointer-events-none absolute left-1/2 bottom-[0%] z-[4] w-[130%] max-w-none -translate-x-1/2 opacity-90"
+          className="pointer-events-none absolute left-1/2 bottom-0 z-[4] w-[130%] max-w-none -translate-x-1/2 opacity-90"
           priority
         />
 
         {/* Background white curve line */}
         <svg
-          className="pointer-events-none absolute left-1/2 bottom-[12%] z-[4] w-[140%] max-w-none -translate-x-1/2 opacity-90"
+          className="pointer-events-none absolute left-1/2 bottom-[12%] z-[4] w-[140%] max-w-none -translate-x-1/2 opacity-100"
           viewBox="0 0 1440 260"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
         >
-          <path d="M0 200 C 240 120, 480 120, 720 200 S 1200 280, 1440 200" stroke="white" strokeWidth="2.5" strokeOpacity="0.9" fill="none" />
+          <path
+            d="M0 200 C 240 120, 480 120, 720 200 S 1200 280, 1440 200"
+            stroke="white"
+            strokeWidth="3"
+            strokeOpacity="1"
+            fill="none"
+          />
         </svg>
 
         {/* Floating Fruits */}
@@ -81,7 +90,7 @@ export function Hero() {
         />
 
         {/* Cans */}
-        <div className="absolute inset-x-0 z-[100] flex items-end justify-center gap-0">
+        <div className="absolute inset-x-0 z-[100] flex flex-wrap justify-center gap-4 items-end">
           {/* Lime Can */}
           <Image
             src="/green.avif"
@@ -89,11 +98,9 @@ export function Hero() {
             width={240}
             height={320}
             className={cn(
-              "h-auto w-[180px] sm:w-[200px] md:w-[240px]",
-              "origin-bottom ",
-              "animate-[can-pop_1s_cubic-bezier(0.2,0.8,0.2,1)_forwards]",
-              "drop-shadow-[0_32px_48px_rgba(0,0,0,0.35)]",
-              "-mr-16"
+              "h-auto w-[140px] sm:w-[180px] md:w-[240px]",
+              "origin-bottom animate-[can-pop_1s_cubic-bezier(0.2,0.8,0.2,1)_forwards]",
+              "drop-shadow-[0_32px_48px_rgba(0,0,0,0.35)]"
             )}
             style={{ '--can-rotate': '-18deg', '--can-y': '0px' } as React.CSSProperties}
             priority
@@ -106,9 +113,8 @@ export function Hero() {
             width={250}
             height={330}
             className={cn(
-              "h-auto w-[190px] sm:w-[210px] md:w-[250px]",
-              "origin-bottom z-[11]",
-              "animate-[can-sweep-right_1.1s_cubic-bezier(0.2,0.8,0.2,1)_forwards]",
+              "h-auto w-[150px] sm:w-[190px] md:w-[250px]",
+              "origin-bottom animate-[can-sweep-right_1.1s_cubic-bezier(0.2,0.8,0.2,1)_forwards]",
               "drop-shadow-[0_36px_56px_rgba(0,0,0,0.35)]"
             )}
             style={{ '--can-rotate': '20deg', '--can-y': '0px' } as React.CSSProperties}

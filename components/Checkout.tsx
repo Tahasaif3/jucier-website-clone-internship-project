@@ -343,12 +343,12 @@ export function CheckoutPage() {
                     animate={{ opacity: 1, x: 0 }}
                     className="flex gap-4"
                   >
-                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-b from-red-100 to-red-50 rounded-lg flex items-center justify-center">
+                    <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-b from-red-100 to-red-50 rounded-lg flex items-center justify-center">
                       <Image
                         src={item.image}
                         alt={item.title}
-                        width={56}
-                        height={56}
+                        width={52}
+                        height={52}
                         className="object-contain"
                       />
                     </div>

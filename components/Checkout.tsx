@@ -347,8 +347,8 @@ export function CheckoutPage() {
                       <Image
                         src={item.image}
                         alt={item.title}
-                        width={52}
-                        height={52}
+                        width={48}
+                        height={48}
                         className="object-contain"
                       />
                     </div>

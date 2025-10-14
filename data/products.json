@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "slug": "blueberry-juice",
+    "title": "Blueberry juice",
+    "image": "/68a40e550b62f5698e6d393b_product-08.avif",
+    "bg": "/68b7c72bb51ce6bfa20b0800_product-category5-bg.avif"
+  },
+  {
+    "id": 2,
+    "slug": "dragonfruit-juice",
+    "title": "Dragonfruit juice",
+    "image": "/68c40b74c2091b030560652e_product-02.avif",
+    "bg": "/68b7c77e1f8816fc1fae5922_product-category4-bg.avif"
+  },
+  {
+    "id": 3,
+    "slug": "grapes-juice",
+    "title": "Grapes juice",
+    "image": "/687e23450be1b336d5f731c7_product-03.avif",
+    "bg": "/68a5b054748a32f45f0ad935_grapes_image.png"
+  },
+  {
+    "id": 4,
+    "slug": "Lemon-juice",
+    "title": "Lemon juice",
+    "image": "/68bea4fdeb15d0f3681da0b6_lemon-can.avif",
+    "bg": "/68b7c71223b7f3f89aefa218_product-category3-bg.avif"
+  },
+  {
+    "id": 5,
+    "slug": "Lime-juice",
+    "title": "Lime juice",
+    "image": "/68b987fc1d0ebc23a40bcb50_05.avif",
+    "bg": "/68b7c4e19ff7f2820991e1d1_product-category1-bg.avif"
+  }
+]
+

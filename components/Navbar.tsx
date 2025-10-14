@@ -203,86 +203,117 @@ export default function Navbar() {
         `}</style>
       </header>
 
-      {/* ✅ Cart Modal — Slide In from Right */}
-      <AnimatePresence>
-        {showCart && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[999] bg-black/60 flex justify-end"
-            onClick={() => setShowCart(false)}
-          >
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ duration: 0.3 }}
-              onClick={(e) => e.stopPropagation()}
-              className="w-full sm:w-[400px] bg-white h-full overflow-y-auto shadow-lg relative p-6"
+{/* ✅ Cart Modal — Slide In from Right */}
+<AnimatePresence>
+  {showCart && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[999] bg-black/60 flex justify-end"
+      onClick={() => setShowCart(false)}
+    >
+      <motion.div
+        initial={{ x: "100%" }}
+        animate={{ x: 0 }}
+        exit={{ x: "100%" }}
+        transition={{ duration: 0.3 }}
+        onClick={(e) => e.stopPropagation()}
+        className="w-full sm:w-[400px] bg-white h-full overflow-y-auto shadow-lg relative p-6"
+      >
+        <button
+          onClick={() => setShowCart(false)}
+          className="absolute top-4 right-4 text-gray-500 hover:text-[#d91645] transition-colors"
+        >
+          <X size={24} />
+        </button>
+
+        <h2 className="text-2xl font-bold mb-6 text-[#d91645]">Your Cart</h2>
+
+        {cart.length === 0 ? (
+          <div className="flex flex-col items-center justify-center h-64 text-center">
+            <ShoppingCart className="h-16 w-16 text-[#d91645]/20 mb-4" />
+            <p className="text-gray-600 text-lg">Your cart is empty.</p>
+            <Link
+              href="/shop"
+              onClick={() => setShowCart(false)}
+              className="mt-4 px-4 py-2 bg-[#d91645] text-white rounded-md hover:bg-[#b8123a] transition-colors"
             >
-              <button
-                onClick={() => setShowCart(false)}
-                className="absolute top-4 right-4 text-gray-500 hover:text-[#d91645]"
-              >
-                <X size={24} />
-              </button>
-
-              <h2 className="text-2xl font-bold mb-6 text-[#d91645]">Your Cart</h2>
-
-              {cart.length === 0 ? (
-                <p className="text-gray-600 text-center mt-10">Your cart is empty.</p>
-              ) : (
-                <>
-                  {cart.map((item) => (
-                    <div key={item.id} className="flex items-center justify-between border-b py-4">
-                      <div>
-                        {/* @ts-expect-error:error */}
-                        <h3 className="font-semibold text-gray-800">{item.name}</h3>
-                        <p className="text-sm text-gray-500">{item.price}</p>
-                        <div className="flex items-center mt-2 gap-2">
-                          <button
-                                              /* @ts-expect-error:error */
-                            onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                            className="p-1 rounded bg-gray-200 hover:bg-gray-300"
-                          >
-                            <Minus size={14} />
-                          </button>
-                          <span>{item.quantity}</span>
-                          <button
-                            /* @ts-expect-error:error */
-                            onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                            className="p-1 rounded bg-gray-200 hover:bg-gray-300"
-                          >
-                            <Plus size={14} />
-                          </button>
-                        </div>
-                      </div>
+              Browse Products
+            </Link>
+          </div>
+        ) : (
+          <>
+            <div className="space-y-4 mb-6">
+              {cart.map((item) => (
+                <div key={item.id} className="flex items-start justify-between border-b pb-4">
+                  <div className="flex-1">
+                     {/* @ts-expect-error:error */}
+                    <h3 className="font-semibold text-gray-800">{item.name}</h3>
+                    <p className="text-sm text-[#d91645] font-medium mt-1">{item.price}</p>
+                    <div className="flex items-center mt-3 gap-2">
                       <button
-                        /* @ts-expect-error:error */
-                        onClick={() => removeFromCart(item.id)}
-                        className="text-gray-400 hover:text-red-500"
+                                          //@ts-expect-error:error
+                        onClick={() => updateQuantity(item.id, Math.max(1, item.quantity - 1))}
+                        className="w-8 h-8 rounded-full bg-[#d91645]/10 text-[#d91645] flex items-center justify-center hover:bg-[#d91645]/20 transition-colors"
                       >
-                        <Trash2 size={18} />
+                        <Minus size={14} />
+                      </button>
+                      <span className="w-8 text-center font-medium">{item.quantity}</span>
+                      <button
+                                          //@ts-expect-error:error
+                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                        className="w-8 h-8 rounded-full bg-[#d91645]/10 text-[#d91645] flex items-center justify-center hover:bg-[#d91645]/20 transition-colors"
+                      >
+                        <Plus size={14} />
                       </button>
                     </div>
-                  ))}
-
-                  <div className="mt-6 space-y-2 text-gray-700">
-                    <p>Subtotal: ${subtotal.toFixed(2)}</p>
-                    <p>Shipping: ${shipping.toFixed(2)}</p>
-                    <p>Tax: ${tax.toFixed(2)}</p>
-                    <hr />
-                    <p className="font-bold text-[#d91645]">
-                      Total: ${total.toFixed(2)}
-                    </p>
                   </div>
-                </>
-              )}
-            </motion.div>
-          </motion.div>
+                  <button
+                    //@ts-expect-error:error
+                    onClick={() => removeFromCart(item.id)}
+                    className="text-gray-400 hover:text-red-500 ml-2 mt-1"
+                  >
+                    <Trash2 size={18} />
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            <div className="border-t pt-4 space-y-3">
+              <div className="flex justify-between text-gray-700">
+                <span>Subtotal:</span>
+                <span>${subtotal.toFixed(2)}</span>
+              </div>
+              <div className="flex justify-between text-gray-700">
+                <span>Shipping:</span>
+                <span>{shipping === 0 ? "Free" : `$${shipping.toFixed(2)}`}</span>
+              </div>
+              <div className="flex justify-between text-gray-700">
+                <span>Tax:</span>
+                <span>${tax.toFixed(2)}</span>
+              </div>
+              <hr className="my-2 border-gray-200" />
+              <div className="flex justify-between font-bold text-lg text-[#d91645]">
+                <span>Total:</span>
+                <span>${total.toFixed(2)}</span>
+              </div>
+
+              {/* ✅ Checkout Button */}
+              <Link
+                href="/checkout"
+                onClick={() => setShowCart(false)}
+                className="mt-4 w-full block text-center py-3 bg-[#d91645] text-white font-semibold rounded-md hover:bg-[#b8123a] transition-colors shadow-md hover:shadow-lg"
+              >
+                Go to Checkout
+              </Link>
+            </div>
+          </>
         )}
-      </AnimatePresence>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
     </>
   );
 }

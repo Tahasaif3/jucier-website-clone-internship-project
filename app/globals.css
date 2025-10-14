@@ -237,3 +237,6 @@
   from { width: 0; }
   to { width: 1400px; }
 }
+button, a {
+  transition: box-shadow 0.2s ease;
+}

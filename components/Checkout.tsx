@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowLeft, Lock, Check, ShoppingBag } from 'lucide-react'
 import Link from 'next/link'
 import { useCart } from '@/app/context/CartContext'
+import Image from 'next/image'
 
 export function CheckoutPage() {
   const { cart, clearCart } = useCart()
@@ -343,7 +344,13 @@ export function CheckoutPage() {
                     className="flex gap-4"
                   >
                     <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-b from-red-100 to-red-50 rounded-lg flex items-center justify-center">
-                      <div className="text-2xl">🧃</div>
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        width={64}
+                        height={64}
+                        className="object-contain"
+                      />
                     </div>
                     <div className="flex-1">
                       <p className="font-semibold text-gray-900">{item.title}</p>

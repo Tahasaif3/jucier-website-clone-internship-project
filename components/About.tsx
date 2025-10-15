@@ -3,9 +3,12 @@
 import Image from "next/image"
 import { useState } from "react"
 import { motion } from "framer-motion"
+import { useRouter } from "next/navigation"; 
+
 
 export default function Abouts() {
   const [hovered, setHovered] = useState(false)
+  const router = useRouter();
 
   return (
     <section className="flex flex-col md:flex-row items-center justify-between min-h-screen bg-gradient-to-b from-[#fff9e6] to-[#ffe8b8] py-20 px-6 md:px-12 lg:px-20 max-w-[1600px] mx-auto relative overflow-hidden">
@@ -22,7 +25,11 @@ export default function Abouts() {
           deliver the perfect blend of taste and energy. Sip confidently, knowing every drop is made
           with care and quality in mind.
         </p>
-        <button className="inline-block px-8 py-3 border-2 border-black rounded-full text-[16px] font-semibold text-black bg-transparent transition-all duration-300 hover:bg-black hover:text-white">
+        <button 
+          aria-label="Explore our products"
+          onClick={() => router.push("/Shop")}
+          className="inline-block px-8 py-3 border-2 border-black rounded-full text-[16px] font-semibold text-black bg-transparent transition-all duration-300 hover:bg-black hover:text-white cursor-pointer"
+        >
           Explore products
         </button>
       </div>

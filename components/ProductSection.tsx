@@ -1,8 +1,10 @@
 'use client'
 
 import React from 'react';
+import { useRouter } from "next/navigation";
 
 export default function JuiceProductCards() {
+  const router = useRouter();
   const products = [
     {
       name: 'Apple juice',
@@ -39,6 +41,7 @@ export default function JuiceProductCards() {
 
             {/* Button */}
             <button
+              onClick={() => router.push("/Shop")}
               className={`relative mb-3 px-6 py-4 text-lg font-semibold text-gray-900 bg-transparent border-2 border-gray-900 rounded-full overflow-hidden group/button transition-all duration-300 hover:scale-105 hover:shadow-lg`}
             >
               <span className="relative z-10 group-hover/button:text-white transition-colors duration-300">

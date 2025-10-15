@@ -2,6 +2,8 @@
 
 import Image from "next/image"
 import { useRef } from "react"
+import { useRouter } from "next/navigation";
+
 
 type Product = {
   id: number
@@ -23,6 +25,7 @@ const products: Product[] = [
 
 export default function ExploreFavorites() {
   const listRef = useRef<HTMLDivElement>(null)
+  const router = useRouter();
 
   const scrollByCards = (dir: 1 | -1) => {
     const el = listRef.current
@@ -87,7 +90,9 @@ export default function ExploreFavorites() {
                 <div className="mt-4 text-center">
                   <h3 className="text-xl font-extrabold text-neutral-900">{p.title}</h3>
                   <p className="mt-1 text-sm font-semibold text-neutral-600">{p.price}</p>
-                  <button className="mx-auto mt-4 inline-flex items-center rounded-full border border-black/80 px-5 py-2 text-sm font-semibold text-black hover:bg-[#d21544] hover:text-white">
+                  <button 
+                  onClick={() => router.push("/Shop")}
+                  className="mx-auto mt-4 inline-flex items-center rounded-full border border-black/80 px-5 py-2 text-sm font-semibold text-black hover:bg-[#d21544] hover:text-white">
                     Shop now
                   </button>
                 </div>

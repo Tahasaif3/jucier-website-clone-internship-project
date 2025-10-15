@@ -10,6 +10,8 @@ import {
   type MotionValue,
 } from "framer-motion"
 import { cn } from "@/lib/utils"
+import { useRouter } from "next/navigation";
+
 
 type Img = { src: string; alt: string }
 
@@ -96,7 +98,7 @@ export function GallerySplitScroll({
     () => Array.from({ length: 4 }, (_v, i) => images[i % images.length]),
     [images]
   )
-
+    const router = useRouter();
   const sectionRef = React.useRef<HTMLDivElement | null>(null)
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -166,7 +168,9 @@ export function GallerySplitScroll({
             <h2 className="text-4xl md:text-6xl font-semibold tracking-tight text-balance text-black dark:text-white">
               The crispness of freshness
             </h2>
-            <button className="mt-4 inline-flex items-center rounded-full border text-black border-black/10 px-5 py-2 text-sm hover:bg-black/5 dark:border-white/10 dark:hover:bg-white/10 transition-colors">
+            <button
+              onClick={() => router.push("/Shop")}
+             className="mt-4 inline-flex items-center rounded-full border text-black border-black/10 px-5 py-2 text-sm hover:bg-black/5 dark:border-white/10 dark:hover:bg-white/10 transition-colors">
               Shop now
             </button>
           </div>

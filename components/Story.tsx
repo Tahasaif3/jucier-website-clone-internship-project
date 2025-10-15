@@ -29,7 +29,7 @@ export default function StorySection() {
             </p>
 
             <div className="mt-8">
-              <a href="/products" className="btn-fill-btt" aria-label="Explore products">
+              <a href="/Shop" className="btn-fill-btt" aria-label="Explore products">
                 <span>Explore products</span>
               </a>
             </div>

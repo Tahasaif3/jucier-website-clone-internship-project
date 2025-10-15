@@ -22,7 +22,20 @@ export function Hero() {
           )}
         >
           <span className="drop-shadow-[0_4px_6px_rgba(0,0,0,0.15)]">Pure Sips, </span>
-          <span className="headline-hollow">Straight </span>
+          {/* <span className="headline-hollow">Straight </span> */}
+        <span
+          className="
+            headline-hollow
+            text-white
+            md:text-transparent
+            md:[-webkit-text-stroke:2px_white]
+            [text-shadow:_0_0_2px_rgba(0,0,0,0.4)]
+            transition-all
+            duration-300
+            ease-in-out
+          "
+        >
+          Straight </span>
           <br className="hidden md:block" />
         <span className="ml-0 md:ml-24 drop-shadow-[0_4px_6px_rgba(0,0,0,0.15)]">
           From Nature&apos;s Can!
